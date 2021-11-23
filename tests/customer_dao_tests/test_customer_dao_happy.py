@@ -2,7 +2,8 @@ from data_access_layer.implementation_classes.customer_dao_implemented import Cu
 from entities.customers import Customer
 
 customer_dao_implementation = CustomerDAOImplemented()
-customer = Customer(0, "Daniel", "Landeros", "dland1931@gmail.com")
+customer = Customer(0, 1, "Jack", "Frost", "frost@gmail.com")
+customer_to_update = Customer(3, 1, "Dan", "Bear", "goose@gmail.com")
 
 
 def test_create_new_customer_success():
@@ -21,9 +22,8 @@ def test_return_all_customers_success():
 
 
 def test_update_customer_by_id_success():
-    customer_to_update = Customer(1, "Jieun", "Gu", "jieun.gu@gmail.com")
-    updated_customer: Customer = customer_dao_implementation.update_customer_by_id(customer_to_update)
-    assert updated_customer.email == customer_to_update.email
+    updated_customer: Customer = customer_dao_implementation.update_customer_by_id(1)
+    assert updated_customer.customer_id == 1
 
 
 def test_delete_customer_by_id_success():
