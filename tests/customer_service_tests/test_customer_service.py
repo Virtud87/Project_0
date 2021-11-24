@@ -16,7 +16,7 @@ customer_service = CustomerServiceImplemented(customer_dao)
 
 new_customer = Customer(1, 1, "Jieun", "Gu", "jieun@gmail.com")
 
-update_customer = Customer(11, 5, "a", "b", "a@me.com")
+update_customer = Customer(1, 5, "a", "b", "a@me.com")
 
 
 def test_validate_service_create_new_customer():

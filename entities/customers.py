@@ -14,3 +14,12 @@ class Customer:
             "lastName": self.last_name,
             "email": self.email
         }
+
+    def __str__(self):
+        return "customer ID: {}, bank account ID: {}, first name: {}, last name: {}, email: {}".format(
+            self.customer_id,
+            self.bank_account_id,
+            self.first_name,
+            self.last_name,
+            self.email
+        )

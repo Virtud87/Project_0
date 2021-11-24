@@ -37,10 +37,10 @@ class CustomerServiceImplemented(CustomerService):
             return self.customer_dao.return_all_customers()
         raise EmptyDatabase("There are no customers available.")
 
-    def service_update_customer_by_id(self, customer_id) -> Customer:
+    def service_update_customer_by_id(self, customer: Customer) -> Customer:
         for customer_in_list in self.customer_dao.customer_list:
-            if customer_in_list.customer_id == customer_id:
-                return self.customer_dao.update_customer_by_id(customer_id)
+            if customer_in_list.customer_id == customer.customer_id:
+                return self.customer_dao.update_customer_by_id(customer)
         raise CustomerDoesNotExist("This customer does not exist. Try again.")
 
     def service_delete_customer_by_id(self, customer_id):

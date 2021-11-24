@@ -9,7 +9,7 @@ class CustomerDAOImplemented(CustomerDAO):
     premade_customer = Customer(1, 1, "Daniel", "Landeros", "d31@gmail.com")
     premade_customer_2 = Customer(2, 2, "Jieun", "Gu", "gu@gmail.com")
     premade_customer_3 = Customer(3, 3, "Goosey", "Bear", "goose@gmail.com")
-
+    # premade_customer, premade_customer_2, premade_customer_3
     # the list below serves as our "database"
     # customer list must contain at least one premade customer in order to run return_customer_by_id
     customer_list = [premade_customer, premade_customer_2, premade_customer_3]
@@ -31,10 +31,12 @@ class CustomerDAOImplemented(CustomerDAO):
     def return_all_customers(self) -> List[Customer]:
         return CustomerDAOImplemented.customer_list
 
-    def update_customer_by_id(self, customer_id) -> Customer:
+    def update_customer_by_id(self, customer: Customer) -> Customer:
         for customer_in_list in CustomerDAOImplemented.customer_list:
-            if customer_in_list.customer_id == customer_id:
-                return customer_in_list
+            if customer_in_list.customer_id == customer.customer_id:
+                index = CustomerDAOImplemented.customer_list.index(customer_in_list)
+                CustomerDAOImplemented.customer_list[index] = customer
+                return customer
 
     def delete_customer_by_id(self, customer_id: int) -> Type[bool]:
         for customer_in_list in CustomerDAOImplemented.customer_list:
