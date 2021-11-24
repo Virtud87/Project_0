@@ -45,7 +45,7 @@ def test_validate_service_return_all_customers():
 
 def test_validate_service_update_customer_by_id():
     try:
-        customer_service.service_update_customer_by_id(update_customer.customer_id)
+        customer_service.service_update_customer_by_id(update_customer)
         assert False
     except CustomerDoesNotExist as e:
         assert str(e) == "This customer does not exist. Try again."
