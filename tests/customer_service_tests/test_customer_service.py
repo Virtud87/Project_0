@@ -1,20 +1,19 @@
 from custom_exceptions.customer_already_exists import CustomerAlreadyExists
 from custom_exceptions.customer_does_not_exist import CustomerDoesNotExist
 from custom_exceptions.empty_database import EmptyDatabase
-from data_access_layer.implementation_classes.customer_dao_implemented import CustomerDAOImplemented
+from data_access_layer.implementation_classes.customer_postgres_dao import CustomerPostgresDAO
 from entities.customers import Customer
-
-from service_layer.implemententation_service.customer_service_implemented import CustomerServiceImplemented
+from service_layer.implemententation_service.customer_postgres_service import CustomerPostgresService
 
 # create the DAO
-customer_dao = CustomerDAOImplemented()
+customer_dao = CustomerPostgresDAO()
 
 # create customer service implemented object and inject customer_dao into service implemented object
-customer_service = CustomerServiceImplemented(customer_dao)
+customer_service = CustomerPostgresService(customer_dao)
 
-new_customer = Customer(1, 1, "Jieun", "Gu", "jieun@gmail.com")
+new_customer = Customer(0, "Jieun", "Landeros", "jieun@gmail.com")
 
-update_customer = Customer(1, 5, "a", "b", "a@me.com")
+update_customer = Customer(10, "a", "b", "a@me.com")
 
 
 def test_validate_service_create_new_customer():
@@ -51,7 +50,7 @@ def test_validate_service_update_customer_by_id():
 
 def test_validate_service_delete_customer_by_id():
     try:
-        customer_service.service_delete_customer_by_id(13)
+        customer_service.service_delete_customer_by_id(10)
         assert False
     except CustomerDoesNotExist as e:
         assert str(e) == "This customer does not exist. Try again."
