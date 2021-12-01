@@ -6,12 +6,10 @@ from entities.customers import Customer
 
 from service_layer.implemententation_service.customer_service_implemented import CustomerServiceImplemented
 
-# custom exceptions starts at 35 min mark
-
 # create the DAO
 customer_dao = CustomerDAOImplemented()
 
-# create service implemented object and inject customer_dao into service implemented object
+# create customer service implemented object and inject customer_dao into service implemented object
 customer_service = CustomerServiceImplemented(customer_dao)
 
 new_customer = Customer(1, 1, "Jieun", "Gu", "jieun@gmail.com")

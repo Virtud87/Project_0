@@ -10,3 +10,6 @@ class BankAccount:
             "customerId": self.customer_id,
             "balance": self.balance
         }
+
+    def __str__(self):
+        return f"bank account id: {self.bank_account_id}, customer id: {self.customer_id}, balance: {self.balance}"
