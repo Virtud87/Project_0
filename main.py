@@ -66,9 +66,9 @@ def update_customer_by_id(customer_id: str):
         customer_data = request.get_json()
         customer_to_be_updated = Customer(
             int(customer_id),
-            customer_data["bankAccountId"],
             customer_data["firstName"],
-            customer_data["lastName"])
+            customer_data["lastName"],
+            customer_data["email"])
         customer_updated = customer_service.service_update_customer_by_id(customer_to_be_updated)
         return "Customer was updated successfully! " + str(customer_updated)
     except CustomerDoesNotExist as e:

@@ -35,8 +35,7 @@ class CustomerPostgresDAO(CustomerDAO):
     def update_customer_by_id(self, customer: Customer) -> Customer:
         sql = "update customers set first_name = %s, last_name = %s, email = %s where customer_id = %s"
         cursor = connection.cursor()
-        cursor.execute(sql, (customer.customer_id, customer.first_name, customer.last_name,
-                             customer.email))
+        cursor.execute(sql, (customer.first_name, customer.last_name, customer.email, customer.customer_id))
         connection.commit()
         return customer
 
