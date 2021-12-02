@@ -10,16 +10,15 @@ class BankAccountDAO(ABC):
         pass
 
     @abstractmethod
-    def deposit_into_account_by_id(self, bank_account_id: int, deposit_amount: float) -> BankAccount:
+    def deposit_into_account_by_id(self, bank_account: BankAccount, deposit_amount: float) -> BankAccount:
         pass
 
     @abstractmethod
-    def withdraw_from_account_by_id(self, bank_account_id: int, withdraw_amount: float) -> BankAccount:
+    def withdraw_from_account_by_id(self, bank_account: BankAccount, withdraw_amount: float) -> BankAccount:
         pass
 
     @abstractmethod
-    def transfer_money_between_accounts_by_id(self, transfer_amount: float, send_id: int,
-                                              receive_id: int) -> List[BankAccount]:
+    def transfer_money_between_accounts_by_id(self, sending: BankAccount, receiving: BankAccount, amount: float) -> bool:
         pass
 
     @abstractmethod
@@ -32,4 +31,8 @@ class BankAccountDAO(ABC):
 
     @abstractmethod
     def get_all_customer_bank_accounts_by_id(self, customer_id: int) -> List[BankAccount]:
+        pass
+
+    @abstractmethod
+    def delete_account_by_id(self, bank_account: BankAccount) -> bool:
         pass

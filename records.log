@@ -1,0 +1,279 @@
+2021-12-02 08:57:09,164 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-02 09:04:21,081 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-02 09:14:06,799 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-02 10:00:08,127 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-02 10:12:23,386 INFO 127.0.0.1 - - [02/Dec/2021 10:12:23] "POST /customer HTTP/1.1" 200 -
+2021-12-02 10:22:20,273 INFO 127.0.0.1 - - [02/Dec/2021 10:22:20] "POST /customer HTTP/1.1" 200 -
+2021-12-02 10:24:50,893 INFO 127.0.0.1 - - [02/Dec/2021 10:24:50] "GET /customer/1 HTTP/1.1" 200 -
+2021-12-02 10:26:19,528 INFO 127.0.0.1 - - [02/Dec/2021 10:26:19] "GET /customers HTTP/1.1" 200 -
+2021-12-02 10:31:57,058 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:31:57,069 INFO 127.0.0.1 - - [02/Dec/2021 10:31:57] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:32:12,227 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:32:12,228 INFO 127.0.0.1 - - [02/Dec/2021 10:32:12] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:34:44,295 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:34:44,297 INFO 127.0.0.1 - - [02/Dec/2021 10:34:44] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:35:17,475 INFO 127.0.0.1 - - [02/Dec/2021 10:35:17] "[31m[1mPATCH /customer/1 HTTP/1.1[0m" 400 -
+2021-12-02 10:35:41,385 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:35:41,386 INFO 127.0.0.1 - - [02/Dec/2021 10:35:41] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:36:00,109 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:36:00,110 INFO 127.0.0.1 - - [02/Dec/2021 10:36:00] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:36:01,473 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:36:01,474 INFO 127.0.0.1 - - [02/Dec/2021 10:36:01] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:36:18,170 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:36:18,171 INFO 127.0.0.1 - - [02/Dec/2021 10:36:18] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:36:38,336 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:36:38,337 INFO 127.0.0.1 - - [02/Dec/2021 10:36:38] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:36:48,349 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:36:48,350 INFO 127.0.0.1 - - [02/Dec/2021 10:36:48] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:36:57,687 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:36:57,687 INFO 127.0.0.1 - - [02/Dec/2021 10:36:57] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:37:39,106 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:37:39,109 INFO 127.0.0.1 - - [02/Dec/2021 10:37:39] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:39:42,688 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:39:42,690 INFO 127.0.0.1 - - [02/Dec/2021 10:39:42] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:39:58,608 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:39:58,609 INFO 127.0.0.1 - - [02/Dec/2021 10:39:58] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:40:13,596 ERROR Exception on /customer/1 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:40:13,597 INFO 127.0.0.1 - - [02/Dec/2021 10:40:13] "[35m[1mPATCH /customer/1 HTTP/1.1[0m" 500 -
+2021-12-02 10:42:40,470 INFO 127.0.0.1 - - [02/Dec/2021 10:42:40] "DELETE /customer/1 HTTP/1.1" 200 -
+2021-12-02 10:43:39,724 ERROR Exception on /customer/2 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:43:39,727 INFO 127.0.0.1 - - [02/Dec/2021 10:43:39] "[35m[1mPATCH /customer/2 HTTP/1.1[0m" 500 -
+2021-12-02 10:43:53,031 ERROR Exception on /customer/2 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:43:53,032 INFO 127.0.0.1 - - [02/Dec/2021 10:43:53] "[35m[1mPATCH /customer/2 HTTP/1.1[0m" 500 -
+2021-12-02 10:44:04,363 ERROR Exception on /customer/2 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:44:04,364 INFO 127.0.0.1 - - [02/Dec/2021 10:44:04] "[35m[1mPATCH /customer/2 HTTP/1.1[0m" 500 -
+2021-12-02 10:44:16,272 ERROR Exception on /customer/2 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:44:16,273 INFO 127.0.0.1 - - [02/Dec/2021 10:44:16] "[35m[1mPATCH /customer/2 HTTP/1.1[0m" 500 -
+2021-12-02 10:44:26,106 ERROR Exception on /customer/2 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 72, in update_customer_by_id
+    customer_data["firstName"],
+KeyError: 'firstName'
+2021-12-02 10:44:26,106 INFO 127.0.0.1 - - [02/Dec/2021 10:44:26] "[35m[1mPATCH /customer/2 HTTP/1.1[0m" 500 -
+2021-12-02 10:44:40,906 INFO 127.0.0.1 - - [02/Dec/2021 10:44:40] "PATCH /customer/2 HTTP/1.1" 200 -
+2021-12-02 12:04:10,132 INFO 127.0.0.1 - - [02/Dec/2021 12:04:10] "DELETE /customer/2 HTTP/1.1" 200 -
+2021-12-02 12:04:36,176 INFO 127.0.0.1 - - [02/Dec/2021 12:04:36] "POST /customer HTTP/1.1" 200 -

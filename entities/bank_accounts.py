@@ -1,8 +1,11 @@
+import decimal
+
+
 class BankAccount:
     def __init__(self, bank_account_id: int, customer_id: int, balance: float):
         self.bank_account_id = bank_account_id
         self.customer_id = customer_id
-        self.balance = balance
+        self.balance = decimal.Decimal(balance)
 
     def create_bank_account_dictionary(self):
         return {

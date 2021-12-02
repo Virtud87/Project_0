@@ -29,7 +29,6 @@ def test_return_all_customers_success():
     assert len(returned_customer_list) >= 2
 
 
-# TODO: check why its not passing
 def test_update_customer_by_id_success():
     # changed parameter to customer from int 1
     updated_customer: Customer = customer_dao_postgres.update_customer_by_id(update_customer)

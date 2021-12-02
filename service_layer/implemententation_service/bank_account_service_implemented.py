@@ -7,6 +7,7 @@ from custom_exceptions.mulitple_customers_per_account import MultipleCustomersPe
 from custom_exceptions.negative_deposit_amount import NegativeDepositAmount
 from custom_exceptions.transfer_more_than_available import TransferMoreThanAvailable
 from custom_exceptions.withdraw_more_than_available import WithdrawMoreThanAvailable
+from custom_exceptions.withdraw_negative_amount import WithdrawNegativeAmount
 from data_access_layer.implementation_classes.bank_account_dao_implemented import BankAccountDAOImplemented
 from entities.bank_accounts import BankAccount
 from service_layer.abstract_service.bank_account_service import BankAccountService
@@ -35,6 +36,8 @@ class BankAccountServiceImplemented(BankAccountService):
             if account.bank_account_id == bank_account_id:
                 if withdraw_amount > account.balance:
                     raise WithdrawMoreThanAvailable("Can not withdraw more than available balance!")
+                if withdraw_amount < 0:
+                    raise WithdrawNegativeAmount("Can not withdraw a negative amount!")
                 account.balance -= withdraw_amount
                 return self.bank_account_dao.withdraw_from_account_by_id(bank_account_id, withdraw_amount)
 
