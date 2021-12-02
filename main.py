@@ -6,6 +6,9 @@ from custom_exceptions.empty_database import EmptyDatabase
 from data_access_layer.implementation_classes.customer_postgres_dao import CustomerPostgresDAO
 from entities.customers import Customer
 from service_layer.implemententation_service.customer_postgres_service import CustomerPostgresService
+import logging
+
+logging.basicConfig(filename="records.log", level=logging.DEBUG, format=f"%(asctime)s %(levelname)s %(message)s")
 
 app: Flask = Flask(__name__)
 
@@ -14,7 +17,7 @@ customer_dao = CustomerPostgresDAO()
 customer_service = CustomerPostgresService(customer_dao)
 
 
-@app.post("/new_customer")
+@app.post("/customer")
 def create_new_customer():
     try:
         # first step converts the json into a dictionary
@@ -36,7 +39,7 @@ def create_new_customer():
         return jsonify(exception_dictionary)
 
 
-@app.get("/get_customer/<customer_id>")
+@app.get("/customer/<customer_id>")
 def return_customer_by_id(customer_id: str):
     try:
         customer_returned = customer_service.service_return_customer_by_id(int(customer_id))
@@ -47,7 +50,7 @@ def return_customer_by_id(customer_id: str):
         return jsonify(exception_dictionary)
 
 
-@app.get("/get_all_customers")
+@app.get("/customers")
 def return_all_customers():
     try:
         customer_list_returned = customer_service.service_return_all_customers()
@@ -60,7 +63,7 @@ def return_all_customers():
         return jsonify(exception_dictionary)
 
 
-@app.patch("/update_customer/<customer_id>")
+@app.patch("/customer/<customer_id>")
 def update_customer_by_id(customer_id: str):
     try:
         customer_data = request.get_json()
@@ -76,7 +79,7 @@ def update_customer_by_id(customer_id: str):
         return jsonify(exception_dictionary)
 
 
-@app.delete("/delete_customer/<customer_id>")
+@app.delete("/customer/<customer_id>")
 def delete_customer_by_id(customer_id: str):
     try:
         deleted = customer_service.service_delete_customer_by_id(int(customer_id))
