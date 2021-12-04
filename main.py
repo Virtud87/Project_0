@@ -1,10 +1,18 @@
 from flask import Flask, request, jsonify
 
+from custom_exceptions.account_does_not_exist import AccountDoesNotExist
 from custom_exceptions.customer_already_exists import CustomerAlreadyExists
 from custom_exceptions.customer_does_not_exist import CustomerDoesNotExist
 from custom_exceptions.empty_database import EmptyDatabase
+from custom_exceptions.negative_deposit_amount import NegativeDepositAmount
+from custom_exceptions.transfer_more_than_available import TransferMoreThanAvailable
+from custom_exceptions.withdraw_more_than_available import WithdrawMoreThanAvailable
+from custom_exceptions.withdraw_negative_amount import WithdrawNegativeAmount
+from data_access_layer.implementation_classes.bank_account_postgres_dao import BankAccountPostgresDAO
 from data_access_layer.implementation_classes.customer_postgres_dao import CustomerPostgresDAO
+from entities.bank_accounts import BankAccount
 from entities.customers import Customer
+from service_layer.implemententation_service.bank_account_postgres_service import BankAccountPostgresService
 from service_layer.implemententation_service.customer_postgres_service import CustomerPostgresService
 import logging
 
@@ -13,10 +21,13 @@ logging.basicConfig(filename="records.log", level=logging.DEBUG, format=f"%(asct
 app: Flask = Flask(__name__)
 
 customer_dao = CustomerPostgresDAO()
-
 customer_service = CustomerPostgresService(customer_dao)
 
+bank_account_dao = BankAccountPostgresDAO()
+bank_account_service = BankAccountPostgresService(bank_account_dao, customer_dao)
 
+
+# CUSTOMERS
 @app.post("/customer")
 def create_new_customer():
     try:
@@ -89,6 +100,121 @@ def delete_customer_by_id(customer_id: str):
     except CustomerDoesNotExist as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary)
+
+
+# BANK ACCOUNTS
+@app.post("/account")
+def create_account():
+    try:
+        account_data = request.get_json()
+        new_account = BankAccount(
+            account_data["bankAccountId"],
+            account_data["customerId"],
+            account_data["balance"])
+        bank_account_returned = bank_account_service.service_create_account(new_account)
+        bank_account_as_dictionary = bank_account_returned.create_bank_account_dictionary()
+        return jsonify(bank_account_as_dictionary)
+    except CustomerDoesNotExist as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+
+
+# TODO: reformat return statement to ensure True does not print
+@app.post("/deposit/<bank_account_id>")
+def deposit_into_account_by_id(bank_account_id: str):
+    try:
+        deposit_dict = request.get_json()
+        deposit_amount = deposit_dict["depositAmount"]
+        account_to_deposit = bank_account_service.service_get_account_by_id(int(bank_account_id))
+        deposited = bank_account_service.service_deposit_into_account_by_id(account_to_deposit, float(deposit_amount))
+        return "Deposit successful! " + str(deposited)
+    except NegativeDepositAmount as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+    except CustomerDoesNotExist as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+
+
+@app.post("/withdraw/<bank_account_id>")
+def withdraw_from_account_by_id(bank_account_id: str):
+    try:
+        withdraw_dict = request.get_json()
+        withdraw_amount = withdraw_dict["withdrawAmount"]
+        withdraw_from_account = bank_account_service.service_get_account_by_id(int(bank_account_id))
+        withdrawn = bank_account_service.service_withdraw_from_account_by_id(withdraw_from_account, withdraw_amount)
+        return "Withdrawal successful! " + str(withdrawn)
+    except WithdrawMoreThanAvailable as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+    except WithdrawNegativeAmount as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+    except CustomerDoesNotExist as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+
+
+@app.post("/transfer/<bank_account_id>/<bank_account_id_2>")
+def transfer_money_between_accounts_by_id(bank_account_id: str, bank_account_id_2: str):
+    try:
+        transfer_dict = request.get_json()
+        transfer_amount = transfer_dict["transferAmount"]
+        sending = bank_account_service.service_get_account_by_id(int(bank_account_id))
+        receiving = bank_account_service.service_get_account_by_id(int(bank_account_id_2))
+        transferred = bank_account_service.service_transfer_money_between_accounts_by_id(sending, receiving,
+                                                                                         transfer_amount)
+        return "Transfer successful! " + str(transferred)
+    except TransferMoreThanAvailable as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+
+
+@app.get("/account/<bank_account_id>")
+def get_account_by_id(bank_account_id: str):
+    try:
+        account = bank_account_service.service_get_account_by_id(int(bank_account_id))
+        account_as_dict = account.create_bank_account_dictionary()
+        return jsonify(account_as_dict)
+    except AccountDoesNotExist as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+
+
+@app.get("/accounts")
+def get_all_bank_accounts():
+    try:
+        accounts = bank_account_service.service_get_all_bank_accounts()
+        list_of_account_dict = []
+        for account in accounts:
+            account_as_dict = account.create_bank_account_dictionary()
+            list_of_account_dict.append(account_as_dict)
+        return jsonify(list_of_account_dict)
+    except EmptyDatabase as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+
+
+@app.get("/accounts/<customer_id>")
+def get_all_customer_bank_accounts_by_id(customer_id: str):
+    try:
+        accounts = bank_account_service.service_get_all_customer_bank_accounts_by_id(int(customer_id))
+        list_of_account_dict = []
+        for account in accounts:
+            account_as_dict = account.create_bank_account_dictionary()
+            list_of_account_dict.append(account_as_dict)
+        return jsonify(list_of_account_dict)
+    except CustomerDoesNotExist as e:
+        exception_dictionary = {"message": str(e)}
+        return jsonify(exception_dictionary)
+
+
+@app.delete("/account/<bank_account_id>")
+def service_delete_account_by_id(bank_account_id: str):
+    deleted = bank_account_service.service_delete_account_by_id(int(bank_account_id))
+    if deleted:
+        return f"Bank account of ID {bank_account_id} successfully deleted."
+    return f"Error: bank account of ID {bank_account_id} not deleted."
 
 
 app.run()

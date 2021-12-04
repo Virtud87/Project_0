@@ -45,10 +45,3 @@ class CustomerPostgresDAO(CustomerDAO):
         cursor.execute(sql, [customer_id])
         connection.commit()
         return True
-
-
-# new_customer_postgres = Customer(0, "Val", "Landeros", "val@gmail.com")
-# new_customer = CustomerPostgresDAO()
-# new_customer.create_new_customer(new_customer_postgres)
-# new_customer.return_customer_by_id(1)
-# new_customer.return_all_customers()

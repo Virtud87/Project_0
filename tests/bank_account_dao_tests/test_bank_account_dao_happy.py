@@ -7,17 +7,17 @@ customer_dao_implementation = BankAccountPostgresDAO()
 bank_account = BankAccount(0, 1, 0.00)
 
 # testing deposit into account
-bank_account_d = BankAccount(1, 1, 0.00)
+bank_account_d = BankAccount(3, 1, 0.00)
 
 # testing withdrawing from account
-bank_account_w = BankAccount(1, 1, 5.00)
+bank_account_w = BankAccount(3, 1, 0.00)
 
 # testing delete bank account
 delete_bank_account = BankAccount(3, 1, 0.00)
 
 # testing transfer
-sending = BankAccount(33, 1, 100)
-receiving = BankAccount(1, 1, 0)
+sending = BankAccount(3, 1, 0.00)
+receiving = BankAccount(1, 1, 0.00)
 
 
 def test_create_account():
@@ -26,17 +26,17 @@ def test_create_account():
 
 
 def test_deposit_into_account_by_id():
-    bank_account_deposited: BankAccount = customer_dao_implementation.deposit_into_account_by_id(bank_account_d, 5.00)
-    assert bank_account_deposited.balance > 0.00
+    deposited = customer_dao_implementation.deposit_into_account_by_id(bank_account_d, 5.00)
+    assert bool(deposited)
 
 
 def test_withdraw_from_account_by_id():
-    bank_account_withdrawn: BankAccount = customer_dao_implementation.withdraw_from_account_by_id(bank_account_w, 5.00)
-    assert bank_account_withdrawn.balance < 5.00
+    withdrawn = customer_dao_implementation.withdraw_from_account_by_id(bank_account_w, 1.00)
+    assert bool(withdrawn)
 
 
 def test_transfer_money_between_accounts_by_id():
-    transferred = customer_dao_implementation.transfer_money_between_accounts_by_id(sending, receiving, 50.00)
+    transferred = customer_dao_implementation.transfer_money_between_accounts_by_id(sending, receiving, 1.00)
     assert bool(transferred)
 
 
@@ -52,7 +52,7 @@ def test_get_all_accounts():
 
 def test_get_all_customer_accounts_by_id():
     returned_list = customer_dao_implementation.get_all_customer_bank_accounts_by_id(1)
-    assert len(returned_list) > 0
+    assert len(returned_list) > 1
 
 
 def test_delete_account_by_id():
