@@ -10,11 +10,11 @@ class BankAccountService(ABC):
         pass
 
     @abstractmethod
-    def service_deposit_into_account_by_id(self, bank_account: BankAccount, deposit_amount: float) -> bool:
+    def service_deposit_into_account_by_id(self, bank_account_id: int, deposit_amount: float):
         pass
 
     @abstractmethod
-    def service_withdraw_from_account_by_id(self, bank_account: BankAccount, withdraw_amount: float) -> bool:
+    def service_withdraw_from_account_by_id(self, bank_account_id: int, withdraw_amount: float):
         pass
 
     @abstractmethod

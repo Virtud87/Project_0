@@ -15,23 +15,24 @@ class BankAccountPostgresDAO(BankAccountDAO):
         bank_account.bank_account_id = generated_id
         return bank_account
 
-    def deposit_into_account_by_id(self, bank_account: BankAccount, deposit_amount: float) -> bool:
-        sql = "update bank_accounts set balance = balance + %s where bank_account_id = %s and customer_id = %s"
+    def deposit_into_account_by_id(self, bank_account_id: int, deposit_amount: float):
+        sql = "update bank_accounts set balance = balance + %s where bank_account_id = %s"
         cursor = connection.cursor()
         cursor.execute(sql,
-                       (deposit_amount, bank_account.bank_account_id, bank_account.customer_id))
+                       (deposit_amount, bank_account_id))
         connection.commit()
-        return True
+        return bank_account_id
 
-    def withdraw_from_account_by_id(self, bank_account: BankAccount, withdraw_amount: float) -> bool:
-        sql = "update bank_accounts set balance = balance - %s where bank_account_id = %s and customer_id = %s"
+    def withdraw_from_account_by_id(self, bank_account_id: int, withdraw_amount: float):
+        sql = "update bank_accounts set balance = balance - %s where bank_account_id = %s"
         cursor = connection.cursor()
         cursor.execute(sql,
-                       (withdraw_amount, bank_account.bank_account_id, bank_account.customer_id))
+                       (withdraw_amount, bank_account_id))
         connection.commit()
-        return True
+        return bank_account_id
 
-    def transfer_money_between_accounts_by_id(self, sending: BankAccount, receiving: BankAccount, amount: float) -> bool:
+    def transfer_money_between_accounts_by_id(self, sending: BankAccount, receiving: BankAccount,
+                                              amount: float):
         sql = "update bank_accounts set balance = balance - %s where bank_account_id = %s"
         cursor = connection.cursor()
         cursor.execute(sql, (amount, sending.bank_account_id))
@@ -40,7 +41,7 @@ class BankAccountPostgresDAO(BankAccountDAO):
         cursor = connection.cursor()
         cursor.execute(sql, (amount, receiving.bank_account_id))
         connection.commit()
-        return True
+        return amount
 
     def get_account_by_id(self, bank_account_id: int) -> BankAccount:
         sql = "select * from bank_accounts where bank_account_id = %s"

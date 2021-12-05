@@ -856,3 +856,117 @@ TypeError: The view function for 'get_all_customer_bank_accounts_by_id' did not 
 2021-12-04 14:27:46,128 INFO 127.0.0.1 - - [04/Dec/2021 14:27:46] "GET /accounts HTTP/1.1" 200 -
 2021-12-04 14:28:06,132 INFO 127.0.0.1 - - [04/Dec/2021 14:28:06] "GET /accounts/1 HTTP/1.1" 200 -
 2021-12-04 14:28:23,131 INFO 127.0.0.1 - - [04/Dec/2021 14:28:23] "DELETE /account/6 HTTP/1.1" 200 -
+2021-12-04 17:05:04,301 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-04 17:44:00,516 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-04 17:45:03,319 INFO 127.0.0.1 - - [04/Dec/2021 17:45:03] "GET /accounts HTTP/1.1" 200 -
+2021-12-04 17:53:22,285 INFO 127.0.0.1 - - [04/Dec/2021 17:53:22] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:01:01,274 INFO 127.0.0.1 - - [04/Dec/2021 18:01:01] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:01:01,393 INFO 127.0.0.1 - - [04/Dec/2021 18:01:01] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:01:11,358 INFO 127.0.0.1 - - [04/Dec/2021 18:01:11] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:02:08,253 INFO 127.0.0.1 - - [04/Dec/2021 18:02:08] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:03:25,835 INFO 127.0.0.1 - - [04/Dec/2021 18:03:25] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:03:48,058 INFO 127.0.0.1 - - [04/Dec/2021 18:03:48] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:05:46,960 INFO 127.0.0.1 - - [04/Dec/2021 18:05:46] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:06:16,185 INFO 127.0.0.1 - - [04/Dec/2021 18:06:16] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:06:16,229 INFO 127.0.0.1 - - [04/Dec/2021 18:06:16] "GET /customers HTTP/1.1" 200 -
+2021-12-04 18:09:49,230 INFO 127.0.0.1 - - [04/Dec/2021 18:09:49] "[33mGET /babel/parser/lib/index.js HTTP/1.1[0m" 404 -
+2021-12-04 18:09:49,257 INFO 127.0.0.1 - - [04/Dec/2021 18:09:49] "[33mGET /babel/parser/lib/index.js HTTP/1.1[0m" 404 -
+2021-12-04 18:09:49,382 INFO 127.0.0.1 - - [04/Dec/2021 18:09:49] "[33mGET /babel/parser/lib/index.js HTTP/1.1[0m" 404 -
+2021-12-04 18:32:55,601 INFO 127.0.0.1 - - [04/Dec/2021 18:32:55] "[33mGET / HTTP/1.1[0m" 404 -
+2021-12-04 18:33:23,085 INFO 127.0.0.1 - - [04/Dec/2021 18:33:23] "[33mGET /babel/parser/lib/index.js HTTP/1.1[0m" 404 -
+2021-12-04 18:53:20,498 INFO 127.0.0.1 - - [04/Dec/2021 18:53:20] "[33mGET /babel/parser/lib/index.js HTTP/1.1[0m" 404 -
+2021-12-05 09:48:14,351 INFO 127.0.0.1 - - [05/Dec/2021 09:48:14] "[33mGET /babel/parser/lib/index.js HTTP/1.1[0m" 404 -
+2021-12-05 09:48:14,366 INFO 127.0.0.1 - - [05/Dec/2021 09:48:14] "[33mGET /babel/parser/lib/index.js HTTP/1.1[0m" 404 -
+2021-12-05 09:48:14,375 INFO 127.0.0.1 - - [05/Dec/2021 09:48:14] "[33mGET /babel/parser/lib/index.js HTTP/1.1[0m" 404 -
+2021-12-05 09:48:14,379 INFO 127.0.0.1 - - [05/Dec/2021 09:48:14] "[33mGET /babel/parser/lib/index.js HTTP/1.1[0m" 404 -
+2021-12-05 14:33:35,876 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 14:34:45,456 ERROR Exception on /deposit/3 [POST]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 128, in deposit_into_account_by_id
+    deposited = bank_account_service.service_deposit_into_account_by_id(int(bank_account_id), float(deposit_amount))
+  File "/Users/dlanderos/PycharmProjects/Project_0/service_layer/implemententation_service/bank_account_postgres_service.py", line 25, in service_deposit_into_account_by_id
+    return self.bank_account_dao.deposit_into_account_by_id(bank_account_id, deposit_amount)
+  File "/Users/dlanderos/PycharmProjects/Project_0/data_access_layer/implementation_classes/bank_account_postgres_dao.py", line 24, in deposit_into_account_by_id
+    account_deposited = cursor.fetchone()
+psycopg2.ProgrammingError: no results to fetch
+2021-12-05 14:34:45,475 INFO 127.0.0.1 - - [05/Dec/2021 14:34:45] "[35m[1mPOST /deposit/3 HTTP/1.1[0m" 500 -
+2021-12-05 14:36:28,073 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 14:36:34,676 INFO 127.0.0.1 - - [05/Dec/2021 14:36:34] "POST /deposit/3 HTTP/1.1" 200 -
+2021-12-05 14:38:04,341 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 14:39:43,135 INFO 127.0.0.1 - - [05/Dec/2021 14:39:43] "POST /deposit/4 HTTP/1.1" 200 -
+2021-12-05 14:51:00,621 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 14:51:24,841 INFO 127.0.0.1 - - [05/Dec/2021 14:51:24] "POST /withdraw/3 HTTP/1.1" 200 -
+2021-12-05 15:13:53,119 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 15:14:56,975 ERROR Exception on /customer/4 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 92, in update_customer_by_id
+    return "Customer was updated successfully! " + str(customer_updated)
+TypeError: __str__ returned non-string (type dict)
+2021-12-05 15:14:56,987 INFO 127.0.0.1 - - [05/Dec/2021 15:14:56] "[35m[1mPATCH /customer/4 HTTP/1.1[0m" 500 -
+2021-12-05 15:17:14,335 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 15:17:28,149 INFO 127.0.0.1 - - [05/Dec/2021 15:17:28] "PATCH /customer/4 HTTP/1.1" 200 -
+2021-12-05 15:17:46,860 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 15:18:14,767 ERROR Exception on /customer/4 [PATCH]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 92, in update_customer_by_id
+    return "Customer was updated successfully! " + dict(customer_updated)
+TypeError: 'Customer' object is not iterable
+2021-12-05 15:18:14,778 INFO 127.0.0.1 - - [05/Dec/2021 15:18:14] "[35m[1mPATCH /customer/4 HTTP/1.1[0m" 500 -
+2021-12-05 15:21:08,764 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 15:21:14,200 INFO 127.0.0.1 - - [05/Dec/2021 15:21:14] "PATCH /customer/4 HTTP/1.1" 200 -
+2021-12-05 15:22:24,676 INFO 127.0.0.1 - - [05/Dec/2021 15:22:24] "PATCH /customer/1 HTTP/1.1" 200 -
+2021-12-05 15:24:11,930 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 15:24:30,513 ERROR Exception on /accounts/1 [GET]
+Traceback (most recent call last):
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1518, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/dlanderos/PycharmProjects/Project_0/venv/lib/python3.7/site-packages/flask/app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/Users/dlanderos/PycharmProjects/Project_0/main.py", line 193, in get_all_customer_bank_accounts_by_id
+    accounts = bank_account_service.service_get_all_customer_bank_accounts_by_id(int(customer_id))
+  File "/Users/dlanderos/PycharmProjects/Project_0/service_layer/implemententation_service/bank_account_postgres_service.py", line 57, in service_get_all_customer_bank_accounts_by_id
+    customers = self.customer_dao.return_all_customers()
+AttributeError: 'BankAccountPostgresService' object has no attribute 'customer_dao'
+2021-12-05 15:24:30,519 INFO 127.0.0.1 - - [05/Dec/2021 15:24:30] "[35m[1mGET /accounts/1 HTTP/1.1[0m" 500 -
+2021-12-05 15:28:32,190 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 15:28:36,661 INFO 127.0.0.1 - - [05/Dec/2021 15:28:36] "GET /accounts/1 HTTP/1.1" 200 -
+2021-12-05 15:28:48,560 INFO 127.0.0.1 - - [05/Dec/2021 15:28:48] "GET /accounts/10 HTTP/1.1" 200 -
+2021-12-05 15:28:53,369 INFO 127.0.0.1 - - [05/Dec/2021 15:28:53] "GET /accounts/1 HTTP/1.1" 200 -
+2021-12-05 15:29:17,283 INFO 127.0.0.1 - - [05/Dec/2021 15:29:17] "DELETE /account/5 HTTP/1.1" 200 -
+2021-12-05 15:29:28,266 INFO 127.0.0.1 - - [05/Dec/2021 15:29:28] "GET /accounts HTTP/1.1" 200 -
+2021-12-05 15:29:34,956 INFO 127.0.0.1 - - [05/Dec/2021 15:29:34] "GET /account/1 HTTP/1.1" 200 -
+2021-12-05 15:30:01,360 INFO 127.0.0.1 - - [05/Dec/2021 15:30:01] "POST /transfer/2/1 HTTP/1.1" 200 -
+2021-12-05 15:34:59,352 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 15:35:22,590 INFO 127.0.0.1 - - [05/Dec/2021 15:35:22] "POST /transfer/3/4 HTTP/1.1" 200 -
+2021-12-05 15:36:12,232 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2021-12-05 15:37:28,076 INFO 127.0.0.1 - - [05/Dec/2021 15:37:28] "POST /account HTTP/1.1" 200 -
+2021-12-05 15:37:55,568 INFO 127.0.0.1 - - [05/Dec/2021 15:37:55] "POST /deposit/4 HTTP/1.1" 200 -
+2021-12-05 15:38:13,162 INFO 127.0.0.1 - - [05/Dec/2021 15:38:13] "POST /deposit/7 HTTP/1.1" 200 -

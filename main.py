@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 
 from custom_exceptions.account_does_not_exist import AccountDoesNotExist
 from custom_exceptions.customer_already_exists import CustomerAlreadyExists
@@ -18,13 +18,18 @@ import logging
 
 logging.basicConfig(filename="records.log", level=logging.DEBUG, format=f"%(asctime)s %(levelname)s %(message)s")
 
-app: Flask = Flask(__name__)
+app: Flask = Flask(__name__, template_folder="templates")
 
 customer_dao = CustomerPostgresDAO()
 customer_service = CustomerPostgresService(customer_dao)
 
 bank_account_dao = BankAccountPostgresDAO()
-bank_account_service = BankAccountPostgresService(bank_account_dao, customer_dao)
+bank_account_service = BankAccountPostgresService(bank_account_dao)
+
+
+# @app.route("/")
+# def home():
+#     return render_template("index.html")
 
 
 # CUSTOMERS
@@ -105,33 +110,24 @@ def delete_customer_by_id(customer_id: str):
 # BANK ACCOUNTS
 @app.post("/account")
 def create_account():
-    try:
-        account_data = request.get_json()
-        new_account = BankAccount(
-            account_data["bankAccountId"],
-            account_data["customerId"],
-            account_data["balance"])
-        bank_account_returned = bank_account_service.service_create_account(new_account)
-        bank_account_as_dictionary = bank_account_returned.create_bank_account_dictionary()
-        return jsonify(bank_account_as_dictionary)
-    except CustomerDoesNotExist as e:
-        exception_dictionary = {"message": str(e)}
-        return jsonify(exception_dictionary)
+    account_data = request.get_json()
+    new_account = BankAccount(
+        account_data["bankAccountId"],
+        account_data["customerId"],
+        account_data["balance"])
+    bank_account_returned = bank_account_service.service_create_account(new_account)
+    bank_account_as_dictionary = bank_account_returned.create_bank_account_dictionary()
+    return jsonify(bank_account_as_dictionary)
 
 
-# TODO: reformat return statement to ensure True does not print
 @app.post("/deposit/<bank_account_id>")
 def deposit_into_account_by_id(bank_account_id: str):
     try:
         deposit_dict = request.get_json()
         deposit_amount = deposit_dict["depositAmount"]
-        account_to_deposit = bank_account_service.service_get_account_by_id(int(bank_account_id))
-        deposited = bank_account_service.service_deposit_into_account_by_id(account_to_deposit, float(deposit_amount))
-        return "Deposit successful! " + str(deposited)
+        deposited = bank_account_service.service_deposit_into_account_by_id(int(bank_account_id), float(deposit_amount))
+        return f"Deposit into account of ID {deposited} successful!"
     except NegativeDepositAmount as e:
-        exception_dictionary = {"message": str(e)}
-        return jsonify(exception_dictionary)
-    except CustomerDoesNotExist as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary)
 
@@ -141,16 +137,12 @@ def withdraw_from_account_by_id(bank_account_id: str):
     try:
         withdraw_dict = request.get_json()
         withdraw_amount = withdraw_dict["withdrawAmount"]
-        withdraw_from_account = bank_account_service.service_get_account_by_id(int(bank_account_id))
-        withdrawn = bank_account_service.service_withdraw_from_account_by_id(withdraw_from_account, withdraw_amount)
-        return "Withdrawal successful! " + str(withdrawn)
+        withdrawn = bank_account_service.service_withdraw_from_account_by_id(int(bank_account_id), float(withdraw_amount))
+        return f"Withdrawal from account of ID {withdrawn} successful!"
     except WithdrawMoreThanAvailable as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary)
     except WithdrawNegativeAmount as e:
-        exception_dictionary = {"message": str(e)}
-        return jsonify(exception_dictionary)
-    except CustomerDoesNotExist as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary)
 
@@ -164,7 +156,7 @@ def transfer_money_between_accounts_by_id(bank_account_id: str, bank_account_id_
         receiving = bank_account_service.service_get_account_by_id(int(bank_account_id_2))
         transferred = bank_account_service.service_transfer_money_between_accounts_by_id(sending, receiving,
                                                                                          transfer_amount)
-        return "Transfer successful! " + str(transferred)
+        return "Transfer successful! Transfer amount = $" + str(transferred)
     except TransferMoreThanAvailable as e:
         exception_dictionary = {"message": str(e)}
         return jsonify(exception_dictionary)

@@ -6,15 +6,6 @@ customer_dao_implementation = BankAccountPostgresDAO()
 # testing create account
 bank_account = BankAccount(0, 1, 0.00)
 
-# testing deposit into account
-bank_account_d = BankAccount(3, 1, 0.00)
-
-# testing withdrawing from account
-bank_account_w = BankAccount(3, 1, 0.00)
-
-# testing delete bank account
-delete_bank_account = BankAccount(3, 1, 0.00)
-
 # testing transfer
 sending = BankAccount(3, 1, 0.00)
 receiving = BankAccount(1, 1, 0.00)
@@ -26,12 +17,12 @@ def test_create_account():
 
 
 def test_deposit_into_account_by_id():
-    deposited = customer_dao_implementation.deposit_into_account_by_id(bank_account_d, 5.00)
+    deposited = customer_dao_implementation.deposit_into_account_by_id(1, 5.00)
     assert bool(deposited)
 
 
 def test_withdraw_from_account_by_id():
-    withdrawn = customer_dao_implementation.withdraw_from_account_by_id(bank_account_w, 1.00)
+    withdrawn = customer_dao_implementation.withdraw_from_account_by_id(1, 1.00)
     assert bool(withdrawn)
 
 
@@ -56,5 +47,5 @@ def test_get_all_customer_accounts_by_id():
 
 
 def test_delete_account_by_id():
-    account_deleted = customer_dao_implementation.delete_account_by_id(delete_bank_account)
+    account_deleted = customer_dao_implementation.delete_account_by_id(1)
     assert account_deleted

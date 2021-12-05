@@ -10,15 +10,15 @@ class BankAccountDAO(ABC):
         pass
 
     @abstractmethod
-    def deposit_into_account_by_id(self, bank_account: BankAccount, deposit_amount: float) -> bool:
+    def deposit_into_account_by_id(self, bank_account_id: int, deposit_amount: float):
         pass
 
     @abstractmethod
-    def withdraw_from_account_by_id(self, bank_account: BankAccount, withdraw_amount: float) -> bool:
+    def withdraw_from_account_by_id(self, bank_account_id: int, withdraw_amount: float):
         pass
 
     @abstractmethod
-    def transfer_money_between_accounts_by_id(self, sending: BankAccount, receiving: BankAccount, amount: float) -> bool:
+    def transfer_money_between_accounts_by_id(self, sending: BankAccount, receiving: BankAccount, amount: float):
         pass
 
     @abstractmethod
