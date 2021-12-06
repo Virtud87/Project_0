@@ -4,11 +4,11 @@ from entities.bank_accounts import BankAccount
 customer_dao_implementation = BankAccountPostgresDAO()
 
 # testing create account
-bank_account = BankAccount(0, 1, 0.00)
+bank_account = BankAccount(0, 2, 0.00)
 
 # testing transfer
-sending = BankAccount(3, 1, 0.00)
-receiving = BankAccount(1, 1, 0.00)
+sending = BankAccount(2, 3, 0.00)
+receiving = BankAccount(1, 3, 0.00)
 
 
 def test_create_account():
@@ -17,12 +17,12 @@ def test_create_account():
 
 
 def test_deposit_into_account_by_id():
-    deposited = customer_dao_implementation.deposit_into_account_by_id(1, 5.00)
+    deposited = customer_dao_implementation.deposit_into_account_by_id(2, 100.00)
     assert bool(deposited)
 
 
 def test_withdraw_from_account_by_id():
-    withdrawn = customer_dao_implementation.withdraw_from_account_by_id(1, 1.00)
+    withdrawn = customer_dao_implementation.withdraw_from_account_by_id(2, 1.00)
     assert bool(withdrawn)
 
 
@@ -42,10 +42,10 @@ def test_get_all_accounts():
 
 
 def test_get_all_customer_accounts_by_id():
-    returned_list = customer_dao_implementation.get_all_customer_bank_accounts_by_id(1)
-    assert len(returned_list) > 1
+    returned_list = customer_dao_implementation.get_all_customer_bank_accounts_by_id(3)
+    assert len(returned_list) >= 1
 
 
 def test_delete_account_by_id():
-    account_deleted = customer_dao_implementation.delete_account_by_id(1)
+    account_deleted = customer_dao_implementation.delete_account_by_id(2)
     assert account_deleted
